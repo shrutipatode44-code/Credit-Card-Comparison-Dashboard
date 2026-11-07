@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CardCompare | Credit Card Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">C</span>
+            <span>CardCompare</span>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="#home" class="nav-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="#cards" class="nav-link">
+                <span>▣</span> Explore Cards
+            </a>
+
+            <a href="#compare" class="nav-link">
+                <span>⇄</span> Compare Cards
+            </a>
+
+            <a href="#recommend" class="nav-link">
+                <span>✦</span> Smart Recommendation
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Credit Card Comparison</p>
+            <small>Hackathon Project 2026</small>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content" id="home">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+                <h2>Dashboard</h2>
+                <p>Compare. Choose. Save smarter.</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-icon">U</div>
+                <span>User Dashboard</span>
+            </div>
+
+        </header>
+
+
+        <!-- Hero Section -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="tag">SMART CREDIT CARD FINDER</span>
+
+                <h1>Find the right credit card for your lifestyle.</h1>
+
+                <p>
+                    Explore, compare and discover credit cards
+                    according to your spending preferences.
+                </p>
+
+                <a href="#cards" class="hero-btn">
+                    Explore Cards →
+                </a>
+
+            </div>
+
+            <div class="hero-graphic">
+                <div class="floating-card">
+                    <div class="card-chip">▦</div>
+                    <div class="card-number">•••• •••• •••• 2026</div>
+                    <div class="card-bottom">
+                        <span>CARD MEMBER</span>
+                        <strong>VISA</strong>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat-box">
+                <span>Available Cards</span>
+                <h2 id="totalCards">0</h2>
+                <small>Explore all options</small>
+            </div>
+
+            <div class="stat-box">
+                <span>Banks</span>
+                <h2 id="totalBanks">0</h2>
+                <small>Multiple providers</small>
+            </div>
+
+            <div class="stat-box">
+                <span>Selected Cards</span>
+                <h2 id="selectedCards">0</h2>
+                <small>For comparison</small>
+            </div>
+
+            <div class="stat-box">
+                <span>Saved Comparisons</span>
+                <h2 id="savedCount">0</h2>
+                <small>Stored in browser</small>
+            </div>
+
+        </section>
+
+
+        <!-- Explore Cards -->
+
+        <section class="section" id="cards">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Explore Credit Cards</h2>
+                    <p>Find cards that match your requirements.</p>
+                </div>
+            </div>
+
+
+            <!-- Search and Filters -->
+
+            <div class="filter-bar">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search card or bank..."
+                >
+
+                <select id="bankFilter">
+                    <option value="all">All Banks</option>
+                </select>
+
+                <select id="feeFilter">
+                    <option value="all">All Annual Fees</option>
+                    <option value="0">Free</option>
+                    <option value="1000">Under ₹1,000</option>
+                    <option value="2000">Under ₹2,000</option>
+                >
+
+                </select>
+
+                <select id="typeFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Lifestyle">Lifestyle</option>
+                    <option value="Fuel">Fuel</option>
+                </select>
+
+                <button class="reset-btn" id="resetFilters">
+                    Reset
+                </button>
+
+            </div>
+
+
+            <!-- Card Container -->
+
+            <div class="card-grid" id="cardContainer"></div>
+
+            <p class="empty-message" id="emptyMessage">
+                No credit cards found.
+            </p>
+
+        </section>
+
+
+        <!-- Comparison Section -->
+
+        <section class="section comparison-section" id="compare">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Compare Credit Cards</h2>
+                    <p>Select up to three cards to compare.</p>
+                </div>
+
+                <button class="clear-btn" id="clearCompare">
+                    Clear Selection
+                </button>
+            </div>
+
+            <div class="comparison-container" id="comparisonContainer">
+
+                <div class="empty-comparison">
+                    <div class="empty-icon">⇄</div>
+                    <h3>No cards selected</h3>
+                    <p>Add cards from Explore Cards to compare them.</p>
+                </div>
+
+            </div>
+
+            <button class="save-btn" id="saveComparison">
+                ♡ Save Comparison
+            </button>
+
+        </section>
+
+
+        <!-- Recommendation Section -->
+
+        <section class="section recommendation-section" id="recommend">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Smart Card Recommendation</h2>
+                    <p>Find a suitable card based on your preferences.</p>
+                </div>
+            </div>
+
+            <div class="recommend-box">
+
+                <div class="recommend-form">
+
+                    <label>What is your primary spending category?</label>
+
+                    <select id="spendingCategory">
+                        <option value="Shopping">Shopping</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="Fuel">Fuel</option>
+                    </select>
+
+                    <label>Preferred annual fee</label>
+
+                    <select id="preferredFee">
+                        <option value="0">Free card</option>
+                        <option value="1000">Below ₹1,000</option>
+                        <option value="2000">Below ₹2,000</option>
+                        <option value="5000">Any fee</option>
+                    </select>
+
+                    <button id="recommendBtn" class="recommend-btn">
+                        Find My Card ✦
+                    </button>
+
+                </div>
+
+                <div id="recommendationResult" class="recommend-result">
+                    <div class="recommend-icon">✦</div>
+                    <h3>Your recommendation will appear here.</h3>
+                    <p>Tell us your preferences to find a suitable card.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer id="about">
+            <h3>CardCompare</h3>
+            <p>Making credit card comparison easier and smarter.</p>
+            <small>Demo project for Hackathon 2026. Not affiliated with any bank.</small>
+        </footer>
+
+    </main>
+
+
+    <!-- Card Details Modal -->
+
+    <div class="modal" id="detailsModal">
+
+        <div class="modal-content">
+
+            <button class="modal-close" id="closeModal">×</button>
+
+            <div id="modalBody"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
